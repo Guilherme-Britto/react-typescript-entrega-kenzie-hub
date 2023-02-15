@@ -5,6 +5,9 @@ import { api } from '../../services/Api';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./validations";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
+import { LoginMain } from "./style"
+import "react-toastify/dist/ReactToastify.css"
 
 
 const Login = () => {
@@ -14,34 +17,41 @@ const Login = () => {
     try {
       const response = await api.post("/sessions ", data)
       console.log(response)
-      localStorage.setItem("@KENZIEHUB", JSON.stringify(response.data.token))
+      localStorage.setItem("@KENZIEHUB:token", JSON.stringify(response.data.token))
+      localStorage.setItem("@KENZIEHUB:userID", JSON.stringify(response.data.user.id))
 
       navigate("/home")
     } catch (error) {
-      console.log(error)
+      return toast.error("E-mail ou senha incorretos!", {
+        position: toast.POSITION.TOP_CENTER
+      })
     }
   }
 
   return (
-    <section>
-      <img src={logo} alt="Kenzie Hub" />
-      <form onSubmit={handleSubmit(loginUser)}>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input id="email" type="text" {...register("email")} placeholder="Digite aqui seu nome" />
-          <p>{errors.email?.message}</p>
-        </div>
-        <div>
-          <label htmlFor="password">Senha</label>
-          <input id="password" type="password" {...register("password")} placeholder="Digite aqui seu nome" />
-          <p>{errors.password?.message}</p>
-        </div>
-
-        <button type="submit">Entrar</button>
-      </form>
-      <p>Ainda não possui uma conta?</p>
-      <Link to='/register'>Cadastre-se</Link>
-    </section>
+    <LoginMain>
+      <header>
+        <img src={logo} alt="Kenzie Hub" />
+      </header>
+      <section>
+        <h2 className='colorgrey0 weigth700'>Login</h2>
+        <form onSubmit={handleSubmit(loginUser)}>
+          <div className='input__container'>
+            <label className='colorgrey0 weigth400' htmlFor="email">Email</label>
+            <input id="email" type="text" {...register("email")} placeholder="Digite aqui seu nome" />
+            <span className='spanError'>{errors.email?.message}</span>
+          </div>
+          <div className='input__container'>
+            <label className='colorgrey0 weigth400' htmlFor="password">Senha</label>
+            <input id="password" type="password" {...register("password")} placeholder="Digite aqui sua senha" />
+            <span className='spanError'>{errors.password?.message}</span>
+          </div>
+          <button className='submitButton' type="submit">Entrar</button>
+        </form>
+        <p className='colorgrey1 weigth600'>Ainda não possui uma conta?</p>
+        <button className='backgroundgrey1 submitButton'><Link to='/register'>Cadastre-se</Link></button>
+      </section>
+    </LoginMain>
   )
 }
 

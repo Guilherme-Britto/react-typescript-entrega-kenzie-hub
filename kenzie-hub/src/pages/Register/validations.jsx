@@ -3,7 +3,7 @@ import * as yup from "yup";
 export const schema = yup
   .object({
     name: yup.string().required("Nome é obrigatório"),
-    email: yup.string().email().required("Email é obrigatório"),
+    email: yup.string().email("Deve ser um e-mail válido").required("Email é obrigatório"),
     bio: yup.string().required("Bio é obrigatória"),
     contact: yup.string().required("Contato é obrigatório"),
   
