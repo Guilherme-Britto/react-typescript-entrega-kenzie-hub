@@ -1,6 +1,6 @@
 import logo from '../../assets/Logo.svg'
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { api } from '../../services/Api';
 import { HomeMain, TechInfo, UserInfo } from './style';
 
@@ -8,32 +8,56 @@ import { HomeMain, TechInfo, UserInfo } from './style';
 
 const Home = () => {
   const navigate = useNavigate()
+  const [loading, SetLoading] = useState(false)
+  const [userInfo, SetUserInfo] = useState([])
 
-  const token = localStorage.getItem("@KENZIEHUB:token")
+  useEffect(() => {
+    const getUser = async () => {
 
-  console.log(token)
+      SetLoading(true)
+      const token = JSON.parse(localStorage.getItem("@KENZIEHUB:token"))
 
-  const getUser = async () => {
+      try {
+        const response = await api.get('/profile', {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
+        console.log(response.data)
+        SetUserInfo(response.data)
+      } catch (error) {
+        console.log(error)
+      } finally {
+        SetLoading(false)
+      }
 
-
-    try {
-      const response = await api.get('/profile', {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      })
-      console.log(response)
-    } catch (error) {
-      console.log(error)
     }
-  }
 
-  getUser()
+    getUser()
+  }, [])
+
+
+
+  console.log(userInfo)
 
   const sair = () => {
     localStorage.clear();
 
     navigate("/")
+  }
+
+  if (loading) {
+    return (
+    <HomeMain>
+      <header>
+        <div className='headerDiv'>
+          <img src={logo} alt="Kenzie Hub" />
+          <button className='headerButton colorgrey0 weigth600' onClick={() => { sair() }}>Sair</button>
+        </div>
+      </header>
+      <h1 ame='colorgrey0'>Carregando...</h1>
+    </HomeMain>
+    )
   }
 
   return (
@@ -46,8 +70,8 @@ const Home = () => {
       </header>
       <UserInfo>
         <div>
-          <h2 className='colorgrey0 weigth700'>Olá, Samuel Leão</h2>
-          <p className='colorgrey1 weigth400'>Primeiro módulo  Introdução ao Frontend</p>
+          <h2 className='colorgrey0 weigth700'>Olá, {userInfo.name}</h2>
+          <p className='colorgrey1 weigth400'>{userInfo.course_module}</p>
         </div>
       </UserInfo>
       <TechInfo>

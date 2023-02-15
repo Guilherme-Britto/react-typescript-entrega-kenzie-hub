@@ -11,8 +11,6 @@ margin: 0 10px;
 
     align-items: center;
 
-    section{
-    }
 }
 
     header{
@@ -62,5 +60,17 @@ margin: 0 10px;
         text-align: center;
 
         margin-top: 34px;
+    }
+
+    a{
+        display: block;
+        line-height: 48px;
+        width: -webkit-fill-available;
+        border-radius: 3.25px;
+        margin: 0 14px;
+        margin-top: 14px;
+        text-align: center;
+
+        color: var(--WhiteFixed); 
     }
 `

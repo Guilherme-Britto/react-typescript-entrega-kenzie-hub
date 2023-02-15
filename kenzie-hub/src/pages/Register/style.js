@@ -70,5 +70,15 @@ margin: 0 10px;
         margin-top: 22px;
     }
 
+    a{
+        width: 80px;
+        line-height: 40px;
+        margin: 0;
+        border-radius: 4px;
+
+        font-size: .75rem;
+
+        background-color: var(--Grey3);
+    } 
 `
 

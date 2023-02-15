@@ -144,25 +144,9 @@ export const GlobalStyle = createGlobalStyle`
 
     body{
         background-color: var(--Grey4);
+        color: var(--WhiteFixed);
         height: 100vw;
     }
-
-    input{
-        border: none;
-        border-radius: 3.25px;
-        padding-left: 15px;
-        margin-top: 6px;
-
-        background-color: var(--Grey2);
-        color: var(--Grey0);
-
-        height: 40px;
-
-        &:hover{
-            border: 1px solid var(--Grey0) ;
-            color: var(--Grey0);
-        }
-        }
 
     select{
         border: none;
@@ -179,26 +163,6 @@ export const GlobalStyle = createGlobalStyle`
     a{
         color: var(--WhiteFixed);
         text-decoration: none;
-    }
-
-    .headerButton{
-        width: 80px;
-        height: 40px;
-        margin: 0;
-        border-radius: 4px;
-
-        background-color: var(--Grey3);
-    } 
-
-    .submitButton{
-        color: var(--WhiteFixed);
-        background-color: var(--Color-primary);
-
-        height: 48px;
-        width: -webkit-fill-available;
-        border-radius: 3.25px;
-
-        cursor: pointer;
     }
 
     .spanError{

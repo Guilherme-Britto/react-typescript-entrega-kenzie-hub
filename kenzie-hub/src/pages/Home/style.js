@@ -28,7 +28,14 @@ export const HomeMain = styled.main`
     }
 
     .headerButton{
-        height: 32px;
+        width: 80px;
+        height: 40px;
+        margin: 0;
+        border-radius: 4px;
+
+        font-size: .75rem;
+
+        background-color: var(--Grey3);
     }
 
 `
@@ -90,7 +97,7 @@ export const TechInfo = styled.section`
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        gap: 15px;
+        gap: 20px;
 
         width: 100%;
         max-width: 1100px;
@@ -100,6 +107,5 @@ export const TechInfo = styled.section`
     h2{
         font-size: 1.1rem;
     }
-
 
 `

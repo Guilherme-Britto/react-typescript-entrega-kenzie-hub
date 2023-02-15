@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import { LoginMain } from "./style"
 import "react-toastify/dist/ReactToastify.css"
+import { SubmitButton, InputForm } from '../../styles/styles';
 
 
 const Login = () => {
@@ -38,18 +39,18 @@ const Login = () => {
         <form onSubmit={handleSubmit(loginUser)}>
           <div className='input__container'>
             <label className='colorgrey0 weigth400' htmlFor="email">Email</label>
-            <input id="email" type="text" {...register("email")} placeholder="Digite aqui seu nome" />
+            <InputForm id="email" type="text" {...register("email")} placeholder="Digite aqui seu nome" />
             <span className='spanError'>{errors.email?.message}</span>
           </div>
           <div className='input__container'>
             <label className='colorgrey0 weigth400' htmlFor="password">Senha</label>
-            <input id="password" type="password" {...register("password")} placeholder="Digite aqui sua senha" />
+            <InputForm id="password" type="password" {...register("password")} placeholder="Digite aqui sua senha" />
             <span className='spanError'>{errors.password?.message}</span>
           </div>
-          <button className='submitButton' type="submit">Entrar</button>
+          <SubmitButton type="submit">Entrar</SubmitButton>
         </form>
         <p className='colorgrey1 weigth600'>Ainda não possui uma conta?</p>
-        <button className='backgroundgrey1 submitButton'><Link to='/register'>Cadastre-se</Link></button>
+        <Link to='/register' className='backgroundgrey1'>Cadastre-se</Link>
       </section>
     </LoginMain>
   )
