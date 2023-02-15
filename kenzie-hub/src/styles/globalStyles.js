@@ -137,6 +137,12 @@ button {
     overflow: visible;
     background: transparent;
     font-family: 'Inter', sans-serif;
+    
+    cursor: pointer;
+}
+
+a{
+    cursor: pointer;
 }
 `
 
