@@ -1,8 +1,8 @@
 import logo from '../../assets/Logo.svg'
-import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from 'react';
-import { api } from '../../services/Api';
-import { HomeMain, TechInfo, UserInfo } from './style';
+import { useNavigate } from "react-router-dom"
+import { useEffect, useState } from 'react'
+import { api } from '../../services/Api'
+import { HomeMain, TechInfo, UserInfo } from './style'
 
 
 
@@ -75,7 +75,6 @@ const Home = () => {
         </div>
       </TechInfo>
     </HomeMain>
-
 
   )
 

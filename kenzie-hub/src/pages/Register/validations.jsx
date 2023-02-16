@@ -1,4 +1,4 @@
-import * as yup from "yup";
+import * as yup from "yup"
 
 export const schema = yup
   .object({
@@ -18,4 +18,4 @@ export const schema = yup
       "Confirmação de senha deve ser igual a senha").required('Confirmação de senha é obrigatória')
 
   })
-  .required();
+  .required()

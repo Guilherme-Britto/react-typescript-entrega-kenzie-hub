@@ -1,14 +1,14 @@
 import React from 'react'
 import logo from '../../assets/Logo.svg'
-import { useForm } from "react-hook-form";
-import { api } from '../../services/Api';
-import { yupResolver } from "@hookform/resolvers/yup";
-import { schema } from "./validations";
-import { Link, useNavigate } from "react-router-dom";
-import { toast } from 'react-toastify';
+import { useForm } from "react-hook-form"
+import { api } from '../../services/Api'
+import { yupResolver } from "@hookform/resolvers/yup"
+import { schema } from "./validations"
+import { Link, useNavigate } from "react-router-dom"
+import { toast } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css"
-import { RegisterMain } from './style';
-import { SubmitButton, InputForm } from '../../styles/styles';
+import { RegisterMain } from './style'
+import { SubmitButton, InputForm } from '../../styles/styles'
 
 
 const Register = () => {
