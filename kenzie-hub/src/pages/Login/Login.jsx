@@ -17,7 +17,7 @@ const Login = () => {
   const loginUser = async (data) => {
     try {
       const response = await api.post("/sessions ", data)
-      console.log(response)
+
       localStorage.setItem("@KENZIEHUB:token", JSON.stringify(response.data.token))
       localStorage.setItem("@KENZIEHUB:userID", JSON.stringify(response.data.user.id))
 
