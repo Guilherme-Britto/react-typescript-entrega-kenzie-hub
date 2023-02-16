@@ -23,10 +23,8 @@ const Home = () => {
             Authorization: `Bearer ${token}`
           }
         })
-        console.log(response.data)
         SetUserInfo(response.data)
       } catch (error) {
-        console.log(error)
       } finally {
         SetLoading(false)
       }
@@ -35,10 +33,6 @@ const Home = () => {
 
     getUser()
   }, [])
-
-
-
-  console.log(userInfo)
 
   const sair = () => {
     localStorage.clear();
