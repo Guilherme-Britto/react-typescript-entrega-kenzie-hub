@@ -9,6 +9,7 @@ import { toast } from 'react-toastify'
 import { LoginMain } from "./style"
 import "react-toastify/dist/ReactToastify.css"
 import { SubmitButton, InputForm } from '../../styles/styles'
+import Input from '../../components/Input/Input'
 
 
 const Login = () => {
@@ -37,16 +38,21 @@ const Login = () => {
       <section>
         <h2 className='colorgrey0 weigth700'>Login</h2>
         <form onSubmit={handleSubmit(loginUser)}>
-          <div className='input__container'>
-            <label className='colorgrey0 weigth400' htmlFor="email">Email</label>
-            <InputForm id="email" type="text" {...register("email")} placeholder="Digite aqui seu nome" />
-            <span className='spanError'>{errors.email?.message}</span>
-          </div>
-          <div className='input__container'>
-            <label className='colorgrey0 weigth400' htmlFor="password">Senha</label>
-            <InputForm id="password" type="password" {...register("password")} placeholder="Digite aqui sua senha" />
-            <span className='spanError'>{errors.password?.message}</span>
-          </div>
+          <Input
+            id={"email"}
+            placeholder={"Digite aqui seu email"}
+            label={"Email"}
+            {...register("email")}
+            error={errors.email?.message} />
+
+          <Input
+            id={"password"}
+            placeholder={"Digite aqui sua senha"}
+            label={"Senha"}
+            {...register("password")}
+            error={errors.password?.message}
+            type={"password"}/>
+
           <SubmitButton type="submit">Entrar</SubmitButton>
         </form>
         <p className='colorgrey1 weigth600'>Ainda não possui uma conta?</p>

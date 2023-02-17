@@ -9,6 +9,7 @@ import { toast } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css"
 import { RegisterMain } from './style'
 import { SubmitButton, InputForm } from '../../styles/styles'
+import Input from '../../components/Input/Input'
 
 
 const Register = () => {
@@ -23,6 +24,9 @@ const Register = () => {
         position: toast.POSITION.TOP_CENTER
       })
     } catch (error) {
+      return toast.error("E-mail já cadastrado!", {
+        position: toast.POSITION.TOP_CENTER
+      })
     }
   }
 
@@ -37,36 +41,49 @@ const Register = () => {
         <h2 className='colorgrey0 weigth700'>Crie sua conta</h2>
         <p className='colorgrey1 weigth400'>Rapido e grátis, vamos nessa</p>
         <form onSubmit={handleSubmit(registerUser)}>
-          <div className='input__container'>
-            <label className='colorgrey0 weigth400' htmlFor="name">Nome</label>
-            <InputForm id="name" type="text" {...register("name")} placeholder="Digite aqui seu nome" />
-            <span className='spanError'>{errors.name?.message}</span>
-          </div>
-          <div className='input__container'>
-            <label className='colorgrey0 weigth400' htmlFor="email">Email</label>
-            <InputForm id="email" type="text" {...register("email")} placeholder="Digite aqui seu email" />
-            <span className='spanError'>{errors.email?.message}</span>
-          </div>
-          <div className='input__container'>
-            <label className='colorgrey0 weigth400' htmlFor="password">Senha</label>
-            <InputForm id="password" type="password" {...register("password")} placeholder="Digite aqui sua senha" />
-            <span className='spanError'>{errors.password?.message}</span>
-          </div>
-          <div className='input__container'>
-            <label className='colorgrey0 weigth400' htmlFor="passwordConfirmation">Confirmar Senha</label>
-            <InputForm id="passwordConfirmation" type="password" {...register("passwordConfirmation")} placeholder="Digite novamente sua senha" />
-            <span className='spanError'>{errors.passwordConfirmation?.message}</span>
-          </div>
-          <div className='input__container'>
-            <label className='colorgrey0 weigth400' htmlFor="bio">Bio</label>
-            <InputForm id="bio" type="text" {...register("bio")} placeholder="Fale sobre você" />
-            <span className='spanError'>{errors.bio?.message}</span>
-          </div>
-          <div className='input__container'>
-            <label className='colorgrey0 weigth400' htmlFor="contact">Contato</label>
-            <InputForm id="contact" type="text" {...register("contact")} placeholder="Opção de contato" />
-            <span className='spanError'>{errors.contact?.message}</span>
-          </div>
+          <Input
+            id={"name"}
+            placeholder={"Digite aqui seu nome"}
+            label={"Nome"}
+            {...register("name")}
+            error={errors.name?.message} />
+  
+          <Input
+            id={"email"}
+            placeholder={"Digite aqui seu email"}
+            label={"Email"}
+            {...register("email")}
+            error={errors.email?.message} />
+
+          <Input
+            id={"password"}
+            placeholder={"Digite aqui sua senha"}
+            label={"Senha"}
+            {...register("password")}
+            error={errors.password?.message}
+            type={"password"} />
+
+          <Input
+            id={"passwordConfirmation"}
+            placeholder={"Digite novamente sua senha"}
+            label={"Confirmar Senha"}
+            {...register("passwordConfirmation")}
+            error={errors.passwordConfirmation?.message}
+            type={"password"} />
+
+          <Input
+            id={"bio"}
+            placeholder={"Fale sobre você"}
+            label={"Bio"}
+            {...register("bio")}
+            error={errors.bio?.message} />
+
+          <Input
+            id={"contact"}
+            placeholder={"Opção de contato"}
+            label={"Contato"}
+            {...register("contact")}
+            error={errors.contact?.message} />
 
           <div className='input__container'>
             <label className='colorgrey0 weigth400' htmlFor="course_module">Selecionar módulo</label>

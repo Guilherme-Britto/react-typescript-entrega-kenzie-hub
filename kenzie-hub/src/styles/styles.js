@@ -15,10 +15,10 @@ export const SubmitButton = styled.button`
 
 export const InputForm = styled.input`
 
-    border: none;
     border-radius: 3.25px;
     padding-left: 15px;
     margin-top: 6px;
+    border: 1px solid transparent ;
 
     background-color: var(--Grey2);
     color: var(--Grey0);

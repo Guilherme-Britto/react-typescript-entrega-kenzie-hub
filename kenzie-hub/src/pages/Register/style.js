@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const RegisterMain = styled.main`
 
@@ -45,13 +45,6 @@ margin: 0 10px;
         display: flex;
         flex-direction: column;
 
-    }
-
-    .input__container{
-        display: flex;
-        flex-direction: column;
-        margin: 0 14px;
-        margin-top: 22px;
     }
 
     label{

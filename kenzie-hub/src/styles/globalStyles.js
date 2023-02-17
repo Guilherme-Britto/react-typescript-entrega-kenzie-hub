@@ -171,6 +171,13 @@ export const GlobalStyle = createGlobalStyle`
         text-decoration: none;
     }
 
+    .input__container{
+        display: flex;
+        flex-direction: column;
+        margin: 0 14px;
+        margin-top: 22px;
+    }
+
     .spanError{
         color: var(--Error);
         font-size: .75rem;
