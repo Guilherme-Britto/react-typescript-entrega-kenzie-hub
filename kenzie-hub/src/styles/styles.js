@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const SubmitButton = styled.button`
 
@@ -29,5 +29,4 @@ export const InputForm = styled.input`
         border: 1px solid var(--Grey0) ;
         color: var(--Grey0);
     }
-
 `

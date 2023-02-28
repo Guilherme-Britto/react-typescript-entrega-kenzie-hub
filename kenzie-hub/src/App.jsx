@@ -1,6 +1,6 @@
-import { ToastContainer } from 'react-toastify'
-import AppRoutes from './routes/index'
-import { GlobalReset, GlobalStyle } from './styles/globalStyles'
+import { ToastContainer } from "react-toastify"
+import AppRoutes from "./routes/index"
+import { GlobalReset, GlobalStyle } from "./styles/globalStyles"
 
 
 function App() {

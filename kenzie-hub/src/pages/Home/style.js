@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const HomeMain = styled.main`
 
@@ -86,26 +86,9 @@ export const UserInfo = styled.section`
 export const TechInfo = styled.section`
 
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-evenly;
 
-    height: auto;
     width: 100%;
     margin-top: 37px;
-
-    div{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-
-        width: 100%;
-        max-width: 1100px;
-        margin: 0 10px;
-    }
-
-    h2{
-        font-size: 1.1rem;
-    }
 
 `

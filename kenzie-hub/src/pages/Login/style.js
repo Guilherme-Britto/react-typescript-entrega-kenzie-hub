@@ -70,7 +70,5 @@ margin: 0 10px;
         margin: 0 14px;
         margin-top: 14px;
         text-align: center;
-
-        color: var(--WhiteFixed); 
     }
 `

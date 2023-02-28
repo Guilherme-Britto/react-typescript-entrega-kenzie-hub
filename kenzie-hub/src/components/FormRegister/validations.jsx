@@ -15,7 +15,6 @@ export const schema = yup
     .matches(/.{8,}/, "Deve conter no mínimo 8 caracteres"),
   passwordConfirmation: yup.string().oneOf(
       [yup.ref("password")],
-      "Confirmação de senha deve ser igual a senha").required('Confirmação de senha é obrigatória')
-
+      "Confirmação de senha deve ser igual a senha").required("Confirmação de senha é obrigatória")
   })
   .required()

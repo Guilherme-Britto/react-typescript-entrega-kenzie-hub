@@ -1,5 +1,5 @@
 
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components"
 
 export const GlobalReset = createGlobalStyle`
     /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -141,9 +141,6 @@ button {
     cursor: pointer;
 }
 
-a{
-    cursor: pointer;
-}
 `
 
 export const GlobalStyle = createGlobalStyle`
@@ -167,6 +164,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     a{
+        cursor: pointer;
         color: var(--WhiteFixed);
         text-decoration: none;
     }
