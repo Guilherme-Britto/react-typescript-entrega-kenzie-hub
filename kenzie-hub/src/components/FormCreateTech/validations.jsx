@@ -5,7 +5,7 @@ export const schema = yup
     title: yup.string().required("Campo obrigatório"),
     status: yup.string().oneOf(
       ["Iniciante", "Intermediário", "Avançado"],
-      "Invalid select option"
+      "Selecione um status"
     ),
   })
   .required();

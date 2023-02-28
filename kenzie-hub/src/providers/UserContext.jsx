@@ -26,7 +26,7 @@ export const UserProvider = ({ children }) => {
       SetUser(response.data)
       SetTechs(response.data.techs)
     } catch (error) {
-      
+
     } finally {
       SetLoading(false)
     }
@@ -46,13 +46,9 @@ export const UserProvider = ({ children }) => {
     try {
       const response = await api.post("/users", formData)
       navigate("/")
-      return toast.success("Conta criada com sucesso!", {
-        position: toast.POSITION.TOP_CENTER
-      })
+      return toast.success("Conta criada com sucesso!")
     } catch (error) {
-      return toast.error("E-mail já cadastrado!", {
-        position: toast.POSITION.TOP_CENTER
-      })
+      return toast.error("E-mail já cadastrado!")
     }
   }
 
@@ -64,9 +60,7 @@ export const UserProvider = ({ children }) => {
       SetUser([])
       autoLogin()
     } catch (error) {
-      return toast.error("E-mail ou senha incorretos!", {
-        position: toast.POSITION.TOP_CENTER
-      })
+      return toast.error("E-mail ou senha incorretos!")
     }
   }
 
@@ -76,7 +70,15 @@ export const UserProvider = ({ children }) => {
   }
 
   return (
-    <UserContext.Provider value={{ userRegister, userLogin, userLogout, loading, user, techs, SetTechs }}>
+    <UserContext.Provider value={{
+      userRegister,
+      userLogin,
+      userLogout,
+      loading,
+      user,
+      techs,
+      SetTechs
+    }}>
       {children}
     </UserContext.Provider>
   )

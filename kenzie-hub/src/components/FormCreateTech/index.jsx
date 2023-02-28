@@ -13,7 +13,6 @@ export const FormCreateTech = () => {
 
     const submit = (formData) => {
         techsCreate(formData)
-        SetCreatingTech(null)
     }
 
     return (

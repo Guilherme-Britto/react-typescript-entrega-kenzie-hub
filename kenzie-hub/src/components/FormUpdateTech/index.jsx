@@ -15,7 +15,6 @@ export const FormUpdateTech = () => {
 
     const submit = (formData) => {
         techsUpdate(formData, editingTech.id)
-        SetEditingTech(null)
     }
 
     return (

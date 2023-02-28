@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react"
 import { api } from "../services/Api"
 import { UserContext } from "./UserContext"
+import { toast } from "react-toastify"
 
 export const TechsContext = createContext({})
 
@@ -8,13 +9,6 @@ export const TechsProvider = ({ children }) => {
     const { techs, SetTechs } = useContext(UserContext)
     const [editingTech, SetEditingTech] = useState(null)
     const [creatingTech, SetCreatingTech] = useState(null)
-
-
-    useEffect(() => {
-
-        console.log(techs)
-
-    }, [techs])
 
     const techsCreate = async (formData) => {
         const token = (localStorage.getItem("@KENZIEHUB:token"))
@@ -25,9 +19,11 @@ export const TechsProvider = ({ children }) => {
                     Authorization: `Bearer ${token}`
                 }
             })
+            toast.success("Tecnologia adicionada com sucesso!")
+            SetCreatingTech(null)
             SetTechs([...techs, response.data])
         } catch (error) {
-            console.log(error)
+            toast.error("Tecnologia já cadastrada!")
         } finally {
         }
     }
@@ -40,6 +36,7 @@ export const TechsProvider = ({ children }) => {
                     Authorization: `Bearer ${token}`
                 }
             })
+            toast.info("Tecnologia removida com sucesso!")
 
             const newTechs = techs.filter(tech => tech.id !== techId);
             SetTechs(newTechs);
@@ -57,7 +54,6 @@ export const TechsProvider = ({ children }) => {
                 }
             });
 
-
             const newTechs = techs.map(tech => {
                 if (techId === tech.id) {
                     return { ...tech, ...formData };
@@ -65,7 +61,8 @@ export const TechsProvider = ({ children }) => {
                     return tech
                 }
             })
-
+            toast.success("Tecnologia atualizada com sucesso!")
+            SetEditingTech(null)
             SetTechs(newTechs);
         } catch (error) {
             console.log(error);
@@ -73,16 +70,15 @@ export const TechsProvider = ({ children }) => {
     }
 
     return (
-        <TechsContext.Provider
-            value={{
-                techsCreate,
-                techsRemove,
-                techsUpdate,
-                editingTech,
-                SetEditingTech,
-                creatingTech,
-                SetCreatingTech
-            }}>
+        <TechsContext.Provider value={{
+            techsCreate,
+            techsRemove,
+            techsUpdate,
+            editingTech,
+            SetEditingTech,
+            creatingTech,
+            SetCreatingTech
+        }}>
             {children}
         </TechsContext.Provider>
     )
