@@ -6,7 +6,8 @@ export const HomeMain = styled.main`
     flex-direction: column;
     align-items: center;
 
-    header{
+
+    nav{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -15,6 +16,9 @@ export const HomeMain = styled.main`
         width: 100%;
         height: 72px;
         border-bottom: 1px solid var(--Grey3);
+        background-color: var(--Grey4);
+
+        position: fixed;
     }
 
     .headerDiv{
@@ -40,7 +44,7 @@ export const HomeMain = styled.main`
 
 `
 
-export const UserInfo = styled.section`
+export const UserInfo = styled.header`
 
 
     display: flex;
@@ -50,6 +54,7 @@ export const UserInfo = styled.section`
     height: auto;
     width: 100%;
     height: 131px;
+    margin-top: 72px;
     border-bottom: 1px solid var(--Grey3);
 
     div{
@@ -83,12 +88,33 @@ export const UserInfo = styled.section`
     }
 `
 
-export const TechInfo = styled.section`
+export const TechInfo = styled.main`
 
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
 
     width: 100%;
-    margin-top: 37px;
+    margin: 20px 0;
 
+    .techInfoHeader{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        width: -webkit-fill-available;
+        max-width: 1120px;
+        margin: 0 10px;
+        margin-bottom: 20px;
+
+        button{
+            background-color: var(--Grey3);
+
+            height: 32px;
+            width: 32px;
+            border-radius: 4px;
+
+            font-size: 1.5rem;
+        }
+    }
 `

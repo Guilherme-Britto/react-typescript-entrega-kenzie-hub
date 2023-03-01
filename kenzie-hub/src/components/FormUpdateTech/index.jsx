@@ -19,8 +19,12 @@ export const FormUpdateTech = () => {
 
     return (
         <form onSubmit={handleSubmit(submit)}>
-            <button className="colorgrey0 weigth400" type="button" onClick={() => SetEditingTech(null)}>X</button>
-            <p>{editingTech.title}</p>
+            <div className="modalHeader">
+                <h2 className="weigth700 ">Tecnologia Detalhes</h2>
+                <button className="colorgrey0 weigth400" type="button" onClick={() => SetEditingTech(null)}>X</button>
+            </div>
+            <p className="projectNameLabel">Nome do projeto</p>
+            <p className="projectName">{editingTech.title}</p>
             <div className="input__container">
                 <label className="colorgrey0 weigth400" htmlFor="course_module">Selecionar módulo</label>
                 <select id="status" {...register("status")}>
@@ -29,9 +33,9 @@ export const FormUpdateTech = () => {
                     <option value="Avançado">Avançado</option>
                 </select>
             </div>
-            <div>
-                <SubmitButton type="submit">Atualizar Tecnologia</SubmitButton>
-                <button className="colorgrey0 weigth400" type="button" onClick={() => (techsRemove(editingTech.id), SetEditingTech(null))}>Remover</button>
+            <div className="buttons__container">
+                <SubmitButton className="submitButtonUpdate" type="submit">Salvar alterações</SubmitButton>
+                <button className="removeButton colorgrey0 weigth400" type="button" onClick={() => (techsRemove(editingTech.id), SetEditingTech(null))}>Excluir</button>
             </div>
         </form>
     )

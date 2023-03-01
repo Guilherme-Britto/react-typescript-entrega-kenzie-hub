@@ -1,13 +1,13 @@
 import { useContext } from "react"
 import { TechsContext } from "../../../providers/TechsContext"
 
-export function TechsCard({ tech }) {
-    const { SetEditingTech, editingTech } = useContext(TechsContext)
+export const TechsCard = ({ tech }) => {
+    const { SetEditingTech, SetCreatingTech } = useContext(TechsContext)
 
     return (
-        <li onClick={() => SetEditingTech(tech) }>
+        <li onClick={() => (SetEditingTech(tech) , SetCreatingTech(null)) }>
             <h3>{tech.title}</h3>
-            <p>{tech.status}</p>
+            <p className="colorgrey1">{tech.status}</p>
         </li>
     )
 }

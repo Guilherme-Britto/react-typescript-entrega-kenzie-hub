@@ -1,9 +1,10 @@
 import { useContext } from "react"
 import { UserContext } from "../../providers/UserContext"
+import { Ul } from "../../styles/styles"
 import { TechsCard } from "./TechsCard"
 
 
-export function TechsList() {
+export const TechsList = () => {
 
     const { techs } = useContext(UserContext)
 
@@ -11,12 +12,12 @@ export function TechsList() {
     return (
         <>
             {techs.length == 0 ?
-                <><p>Nenhuma tecnologia adicíonada.</p></> :
-                <><ul>
+                <p>Nenhuma tecnologia adicíonada.</p> :
+                <Ul>
                     {techs.map(tech => (
                         <TechsCard key={tech.id} tech={tech}/>
                     ))}
-                </ul></>
+                </Ul>
             }
         </>
     )

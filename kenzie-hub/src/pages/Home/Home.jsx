@@ -6,10 +6,11 @@ import { FormCreateTech } from "../../components/FormCreateTech"
 import { TechsContext } from "../../providers/TechsContext"
 import { TechsList } from "../../components/TechsList"
 import { FormUpdateTech } from "../../components/FormUpdateTech"
+import { Modal } from "../../styles/styles"
 
 const Home = () => {
   const { userLogout, loading, user } = useContext(UserContext)
-  const { editingTech, creatingTech, SetCreatingTech } = useContext(TechsContext)
+  const { editingTech, creatingTech, SetCreatingTech, SetEditingTech } = useContext(TechsContext)
 
   if (loading) {
     return (
@@ -27,12 +28,12 @@ const Home = () => {
 
   return (
     <HomeMain>
-      <header>
+      <nav>
         <div className="headerDiv">
           <img src={logo} alt="Kenzie Hub" />
           <button className="headerButton colorgrey0 weigth600" onClick={() => { userLogout() }}>Sair</button>
         </div>
-      </header>
+      </nav>
       <UserInfo>
         <div>
           <h2 className="colorgrey0 weigth700">Olá, {user.name}</h2>
@@ -40,15 +41,21 @@ const Home = () => {
         </div>
       </UserInfo>
       <TechInfo>
-        <div>
-          <h1>Tecnologias</h1>
-          <button className="colorgrey0 weigth700" onClick={() => SetCreatingTech(true)}>+</button>
-        </div>
+        <section className="techInfoHeader">
+          <h1 className="colorgrey0 weigth700" >Tecnologias</h1>
+          <button className="colorgrey0 weigth700" onClick={() => (SetCreatingTech(true), SetEditingTech(null))}>+</button>
+        </section>
         <TechsList />
-        <div>
-          {creatingTech && <FormCreateTech />}
-        </div>
-          {editingTech &&  <FormUpdateTech />}
+        <Modal>
+          <div className="modalDiv">
+            {creatingTech && <FormCreateTech />}
+          </div>
+        </Modal>
+        <Modal>
+          <div className="modalDiv">
+            {editingTech && <FormUpdateTech />}
+          </div>
+        </Modal>
       </TechInfo>
     </HomeMain>
   )

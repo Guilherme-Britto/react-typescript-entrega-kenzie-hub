@@ -17,7 +17,10 @@ export const FormCreateTech = () => {
 
     return (
         <form onSubmit={handleSubmit(submit)}>
-            <button className="colorgrey0 weigth400" type="button" onClick={() => SetCreatingTech(null)}>X</button>
+            <div className="modalHeader">
+                <h2 className="weigth700 ">Cadastrar Tecnologia</h2>
+                <button className="colorgrey1 weigth600 closeButton" type="button" onClick={() => SetCreatingTech(null)}>X</button>
+            </div>
             <Input
                 id={"title"}
                 placeholder={"Digite tecnologia aqui."}
@@ -35,8 +38,7 @@ export const FormCreateTech = () => {
                 </select>
                 <span className="spanError">{errors.status?.message}</span>
             </div>
-
-            <SubmitButton type="submit">Cadastrar Tecnologia</SubmitButton>
+            <SubmitButton className="submitButtonCreate" type="submit">Cadastrar Tecnologia</SubmitButton>
         </form>
     )
 }
