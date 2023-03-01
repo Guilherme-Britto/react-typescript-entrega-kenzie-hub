@@ -41,7 +41,6 @@ export const TechsProvider = ({ children }) => {
             const newTechs = techs.filter(tech => tech.id !== techId);
             SetTechs(newTechs);
         } catch (error) {
-            console.log(error);
         }
     }
 
@@ -65,7 +64,6 @@ export const TechsProvider = ({ children }) => {
             SetEditingTech(null)
             SetTechs(newTechs);
         } catch (error) {
-            console.log(error);
         }
     }
 
