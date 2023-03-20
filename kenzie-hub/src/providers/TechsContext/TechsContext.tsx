@@ -18,7 +18,9 @@ export const TechsProvider = ({ children }: IDefaultProviderProps) => {
   const [updaingTechModal, SetUpdatingTechModal] = useState(false);
   const [creatingTechModal, SetCreatingTechModal] = useState(false);
 
-  const techsCreate = async (formData: ICreateTechFormValues) => {
+  const techsCreate = async (
+    formData: ICreateTechFormValues
+  ): Promise<void> => {
     const token = localStorage.getItem('@KENZIEHUB:token');
 
     try {
@@ -36,7 +38,7 @@ export const TechsProvider = ({ children }: IDefaultProviderProps) => {
     }
   };
 
-  const techsRemove = async (techId: string | undefined) => {
+  const techsRemove = async (techId: string | undefined): Promise<void> => {
     try {
       const token = localStorage.getItem('@KENZIEHUB:token');
       const response = await api.delete(`/users/techs/${techId}`, {
@@ -54,7 +56,7 @@ export const TechsProvider = ({ children }: IDefaultProviderProps) => {
   const techsUpdate = async (
     formData: IUpdateTechFormValues,
     techId: string | undefined
-  ) => {
+  ): Promise<void> => {
     try {
       const token = localStorage.getItem('@KENZIEHUB:token');
       const response = await api.put(`/users/techs/${techId}`, formData, {

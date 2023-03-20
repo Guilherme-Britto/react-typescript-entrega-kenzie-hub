@@ -20,7 +20,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
   const [techs, SetTechs] = useState<ITech[]>([]);
   const [allowLogin, SetAllowLogin] = useState(false);
 
-  const autoLogin = async () => {
+  const autoLogin = async (): Promise<void> => {
     navigate('/home');
     const token = localStorage.getItem('@KENZIEHUB:token');
 
@@ -48,7 +48,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
     }
   }, []);
 
-  const userRegister = async (formData: IRegisterFormValues) => {
+  const userRegister = async (formData: IRegisterFormValues): Promise<void> => {
     try {
       const response = await api.post('/users', formData);
       navigate('/');
@@ -58,7 +58,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
     }
   };
 
-  const userLogin = async (formData: ILoginFormValues) => {
+  const userLogin = async (formData: ILoginFormValues): Promise<void> => {
     try {
       const response = await api.post('/sessions ', formData);
       localStorage.setItem('@KENZIEHUB:token', response.data.token);
@@ -70,7 +70,7 @@ export const UserProvider = ({ children }: IDefaultProviderProps) => {
     }
   };
 
-  const userLogout = () => {
+  const userLogout = (): void => {
     localStorage.removeItem('@KENZIEHUB:token');
     navigate('/');
   };
